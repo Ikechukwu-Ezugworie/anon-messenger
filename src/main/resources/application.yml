@@ -1,0 +1,37 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/jwt_security
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+application:
+  base-url: http://localhost:8085/api/v1
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expiration: 86400000 # a day
+      refresh-token:
+        expiration: 604800000 # 7 days
+
+logging:
+  level:
+    root: INFO
+
+
+
+server:
+  port: 8085
+
+firebase:
+  service-account-filename: anonymous-messenger-d969d-firebase-adminsdk-hsb04-7d3cd53296.json
+  realtime-database-url: https://<your-firebase-database-name>.firebaseio.com
